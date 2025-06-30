@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@iygabebless</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-bg: #000000;
+      --secondary-bg: #2f334f;
+      --accent: #00b7ff;
+      --text: #ffffff;
+      --btn-light-bg: #2ecc71;
+      --btn-light-text: #f0f0f0;
+      --btn-dark-bg: #787878;
+      --btn-dark-text: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: linear-gradient(45deg, var(--primary-bg), #000000);
+      color: var(--text);
+      font-family: 'Futura', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: bold;
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+      overflow-x: hidden;
+      transition: all 0.3s ease;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      text-align: center;
+    }
+
+    .nes-container {
+      background: rgba(47, 51, 79, 0.3);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+      margin-bottom: 20px;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      color: var(--accent);
+      font-size: clamp(2rem, 6vw, 2.5rem);
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      color: var(--accent);
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    nav button {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: none;
+      border-radius: 12px;
+      padding: 10px 20px;
+      color: #fff;
+      font-size: clamp(0.9rem, 2.5vw, 1rem);
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    nav button:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .profile {
+      margin-bottom: 20px;
+    }
+
+    .social-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .primary-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+      width: 100%;
+    }
+
+    .nes-btn {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: none;
+      border-radius: 12px;
+      color: var(--btn-light-text);
+      padding: 12px 16px;
+      font-size: clamp(0.8rem, 2.5vw, 1rem);
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .nes-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .primary-btn {
+      padding: 16px 24px;
+      font-size: 1.1rem;
+      background: rgba(255, 255, 255, 0.2);
+      flex: 1;
+      max-width: 250px;
+    }
+
+    .youtube { background: rgba(255, 0, 0, 0.8); }
+    .twitch { background: rgba(134, 69, 255, 0.8); }
+    .twitter { background: rgba(29, 161, 242, 0.8); }
+    .facebook { background: rgba(66, 103, 178, 0.8); }
+    .discord { background: rgba(88, 101, 242, 0.8); }
+    .telegram { background: rgba(0, 136, 204, 0.8); }
+    .bsky { background: rgba(0, 123, 255, 0.8); }
+    .threads { background: rgba(63, 91, 132, 0.8); }
+    .instagram { background: rgba(225, 48, 108, 0.8); }
+    .reddit { background: rgba(255, 69, 0, 0.8); }
+    .snapchat { background: rgba(255, 235, 59, 0.8); color: #000; }
+    .tiktok { background: rgba(172, 0, 97, 0.8); }
+
+    .live-status {
+      text-align: center;
+      margin: 10px 0;
+      font-size: 0.9rem;
+    }
+
+    .live-indicator {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .live-indicator.active {
+      display: block;
+    }
+
+    .twitch-embed {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+
+    .twitch-embed iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .schedule-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .schedule-item {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 10px 16px;
+      font-size: 0.9rem;
+      flex: 1 1 120px;
+      max-width: 160px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .schedule-item:hover {
+      transform: translateY(-2px);
+    }
+
+    .calendar-btn {
+      background: rgba(0, 123, 255, 0.8);
+      margin-top: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      color: #b0b0b0;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 10px;
+      }
+      .social-grid {
+        grid-template-columns: 1fr;
+      }
+      .primary-btn {
+        font-size: 1rem;
+        padding: 14px 20px;
+        max-width: none;
+      }
+      .primary-buttons {
+        flex-direction: column;
+        gap: 12px;
+      }
+      .schedule-item {
+        flex: 1 1 100%;
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>@iygabebless</h1>
+
+    <nav>
+      <button onclick="showPage('home')"><i class="fab fa-twitter"></i>Socials</button>
+      <button onclick="showPage('schedule')"><i class="fas fa-calendar"></i>Schedule</button>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page nes-container active">
+      <div class="profile">
+        <p class="text-lg">@iygabebless</p>
+        <div id="live-indicator" class="live-indicator">
+          <span style="background: rgba(220, 53, 69, 0.8); padding: 6px 12px; border-radius: 10px; color: #fff;">LIVE NOW!</span>
+        </div>
+      </div>
+      <div class="social-buttons">
+        <div class="primary-buttons">
+          <a href="https://www.twitch.tv/iygabebless" class="nes-btn twitch primary-btn"><i class="fab fa-twitch"></i>Twitch</a>
+          <a href="https://www.youtube.com/@iygabebless" class="nes-btn youtube primary-btn"><i class="fab fa-youtube"></i>YouTube</a>
+        </div>
+        <div class="social-grid">
+          <a href="https://www.twitter.com/iygabebless" class="nes-btn twitter"><i class="fab fa-x-twitter"></i>X</a>
+          <a href="https://www.facebook.com/iygabebless" class="nes-btn facebook"><i class="fab fa-facebook-f"></i>Facebook</a>
+          <a href="https://iygabebless.discord.luxury" class="nes-btn discord"><i class="fab fa-discord"></i>Discord</a>
+          <a href="https://t.me/iygabebless" class="nes-btn telegram"><i class="fab fa-telegram-plane"></i>Telegram</a>
+          <a href="https://bsky.app/profile/iygabebless" class="nes-btn bsky"><i class="fab fa-bluesky"></i>Bsky</a>
+          <a href="https://www.threads.net/@iygabebless" class="nes-btn threads"><i class="fab fa-threads"></i>Threads</a>
+          <a href="https://www.instagram.com/iygabebless" class="nes-btn instagram"><i class="fab fa-instagram"></i>Instagram</a>
+          <a href="https://www.reddit.com/user/iygabebless" class="nes-btn reddit"><i class="fab fa-reddit-alien"></i>Reddit</a>
+          <a href="https://www.snapchat.com/add/iygabebless" class="nes-btn snapchat"><i class="fab fa-snapchat-ghost"></i>Snapchat</a>
+          <a href="https://www.tiktok.com/@iygabebless" class="nes-btn tiktok"><i class="fab fa-tiktok"></i>TikTok</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Page -->
+    <div id="live" class="page nes-container">
+      <div class="live-status" id="live-status"></div>
+      <div id="twitch-embed" class="twitch-embed" style="display: none;"></div>
+    </div>
+
+    <!-- Schedule Page -->
+    <div id="schedule" class="page nes-container">
+      <h2>Stream Schedule</h2>
+      <div class="schedule-grid">
+        <div class="schedule-item">Mon: 3-7 AM NZST/NZDT</div>
+        <div class="schedule-item">Tue: 3-7 AM NZST/NZDT</div>
+        <div class="schedule-item">Wed: 3-7 AM NZST/NZDT</div>
+        <div class="schedule-item">Thu: 3-7 AM NZST/NZDT</div>
+        <div class="schedule-item">Fri: 3-7 AM NZST/NZDT</div>
+        <div class="schedule-item">Sat: 3-7 AM NZST/NZDT</div>
+        <div class="schedule-item">Sun: 3-7 AM NZST/NZDT</div>
+      </div>
+      <a id="calendar-btn" class="nes-btn calendar-btn"><i class="fas fa-calendar-plus"></i>Add Next Stream to Calendar</a>
+    </div>
+
+    <footer>© 2025 iygabebless</footer>
+  </div>
+
+  <script>
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+    }
+
+    function isNZDT(date) {
+      const year = date.getFullYear();
+      const lastSundaySept = new Date(year, 8, 30);
+      lastSundaySept.setDate(30 - (lastSundaySept.getDay() || 7));
+      const firstSundayApril = new Date(year, 3, 1);
+      firstSundayApril.setDate(1 + (7 - firstSundayApril.getDay()) % 7);
+      return date >= lastSundaySept && date < firstSundayApril;
+    }
+
+    function checkLiveStatus() {
+      const now = new Date();
+      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+      const nzOffset = isNZDT(now) ? 13 * 60 : 12 * 60;
+      const nzTime = new Date(utc + (nzOffset * 60000));
+      
+      const hours = nzTime.getHours();
+      const isLive = hours >= 3 && hours < 7;
+
+      const liveIndicator = document.getElementById('live-indicator');
+      const liveStatus = document.getElementById('live-status');
+      const twitchEmbed = document.getElementById('twitch-embed');
+
+      if (isLive) {
+        liveIndicator.classList.add('active');
+        liveStatus.innerHTML = `
+          <span style="background: rgba(220, 53, 69, 0.8); padding: 6px 12px; border-radius: 10px; color: #fff;">LIVE NOW!</span>
+          <p>Streaming on Twitch: Retro Mario Speedruns</p>
+          <a href="https://www.twitch.tv/iygabebless" class="nes-btn twitch">Join the Stream!</a>
+        `;
+        twitchEmbed.style.display = 'block';
+      } else {
+        liveIndicator.classList.remove('active');
+        liveStatus.innerHTML = `
+          <span style="background: rgba(255, 193, 7, 0.8); padding: 6px 12px; border-radius: 10px; color: #212529;">Offline atm</span>
+          <p>Will be live again based on the <a href="#" onclick="showPage('schedule'); return false;" style="color: var(--accent);">schedule</a></p>
+        `;
+        twitchEmbed.style.display = 'none';
+      }
+    }
+
+    function generateCalendarEvent() {
+      const now = new Date();
+      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+      const nzOffset = isNZDT(now) ? 13 * 60 : 12 * 60;
+      const nzTime = new Date(utc + (nzOffset * 60000));
+      
+      let nextStream = new Date(nzTime);
+      if (nzTime.getHours() >= 7) {
+        nextStream.setDate(nzTime.getDate() + 1);
+      }
+      nextStream.setHours(3, 0, 0, 0);
+      
+      const endStream = new Date(nextStream);
+      endStream.setHours(7, 0, 0, 0);
+
+      const formatDate = (date) => {
+        return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+      };
+
+      const icsContent = `
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//iygabebless//Stream Schedule//EN
+BEGIN:VEVENT
+UID:${new Date().getTime()}@iygabebless
+DTSTAMP:${formatDate(new Date())}
+DTSTART:${formatDate(nextStream)}
+DTEND:${formatDate(endStream)}
+SUMMARY:@iygabebless Live Stream
+DESCRIPTION:Join @iygabebless for a live stream on Twitch! Retro Mario Speedruns. https://www.twitch.tv/iygabebless
+LOCATION:Twitch
+URL:https://www.twitch.tv/iygabebless
+END:VEVENT
+END:VCALENDAR
+      `.trim();
+
+      const blob = new Blob([icsContent], { type: 'text/calendar' });
+      const url = URL.createObjectURL(blob);
+      const link = document.getElementById('calendar-btn');
+      link.href = url;
+      link.download = 'iygabebless_next_stream.ics';
+    }
+
+    setInterval(checkLiveStatus, 60000);
+    checkLiveStatus();
+    generateCalendarEvent();
+  </script>
+</body>
+</html>
