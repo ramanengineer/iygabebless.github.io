@@ -9,7 +9,7 @@
     :root {
       --primary-bg: #000000;
       --secondary-bg: #2f334f;
-      --accent: #00b7ff;
+      --accent: #00c4ff;
       --text: #ffffff;
       --btn-light-bg: #2ecc71;
       --btn-light-text: #f0f0f0;
@@ -24,15 +24,21 @@
     }
 
     body {
-      background: linear-gradient(45deg, var(--primary-bg), #000000);
+      background: linear-gradient(45deg, var(--primary-bg), #1a1a2e);
       color: var(--text);
       font-family: 'Futura', -apple-system, BlinkMacSystemFont, sans-serif;
       font-weight: bold;
       margin: 0;
-      padding: 16px;
+      padding: 20px;
       min-height: 100vh;
       overflow-x: hidden;
-      transition: all 0.3s ease;
+      animation: gradientShift 15s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     a {
@@ -47,14 +53,14 @@
     }
 
     .nes-container {
-      background: rgba(47, 51, 79, 0.3);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(47, 51, 79, 0.35);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 16px;
-      padding: 16px;
-      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
-      margin-bottom: 16px;
+      padding: 20px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+      margin-bottom: 20px;
       transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
@@ -64,7 +70,7 @@
 
     .page.active {
       display: block;
-      animation: fadeIn 0.3s ease;
+      animation: fadeIn 0.4s ease;
     }
 
     @keyframes fadeIn {
@@ -74,61 +80,63 @@
 
     h1 {
       color: var(--accent);
-      font-size: clamp(1.8rem, 5vw, 2.2rem);
-      margin-bottom: 12px;
+      font-size: clamp(2rem, 5.5vw, 2.4rem);
+      margin-bottom: 14px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 
     h2 {
       color: var(--accent);
-      font-size: 1.2rem;
-      margin-bottom: 12px;
+      font-size: 1.3rem;
+      margin-bottom: 14px;
     }
 
     nav {
       display: flex;
       justify-content: center;
-      gap: 10px;
-      margin-bottom: 16px;
+      gap: 12px;
+      margin-bottom: 20px;
       flex-wrap: wrap;
     }
 
     nav button {
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border: none;
-      border-radius: 12px;
-      padding: 8px 16px;
+      border-radius: 10px;
+      padding: 8px 18px;
       color: #fff;
-      font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+      font-size: clamp(0.85rem, 2.5vw, 0.95rem);
       font-weight: bold;
       cursor: pointer;
-      transition: transform 0.2s, background 0.2s;
+      transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
       display: flex;
       align-items: center;
       gap: 6px;
     }
 
     nav button:hover {
-      background: rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.3);
       transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 188, 255, 0.3);
     }
 
     .profile {
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
     .social-buttons {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .primary-buttons {
       display: flex;
       justify-content: center;
-      gap: 10px;
+      gap: 12px;
       width: 100%;
       flex-wrap: wrap;
     }
@@ -136,20 +144,20 @@
     .social-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-      gap: 10px;
-      margin-top: 10px;
+      gap: 12px;
+      margin-top: 12px;
       width: 100%;
     }
 
     .nes-btn {
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border: none;
       border-radius: 12px;
       color: var(--btn-light-text);
       padding: 12px;
-      font-size: clamp(0.8rem, 2.5vw, 1rem);
+      font-size: clamp(0.85rem, 2.5vw, 1rem);
       font-weight: bold;
       cursor: pointer;
       display: flex;
@@ -157,50 +165,48 @@
       justify-content: center;
       gap: 6px;
       transition: all 0.3s;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
     .nes-btn:hover {
-      background: rgba(255, 255, 255, 0.25);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
     }
 
     .primary-btn {
-      padding: 14px 20px;
-      font-size: 1rem;
-      background: rgba(255, 255, 255, 0.2);
+      padding: 14px 24px;
+      font-size: 1.1rem;
+      background: rgba(255, 255, 255, 0.25);
       flex: 1;
-      max-width: 220px;
+      max-width: 240px;
     }
 
     .icon-btn {
-      padding: 10px;
-      font-size: 1.2rem;
+      padding: 12px;
+      font-size: 1.3rem;
     }
 
-    .youtube { background: rgba(255, 0, 0, 0.8); }
-    .twitch { background: rgba(134, 69, 255, 0.8); }
-    .twitter { background: rgba(29, 161, 242, 0.8); }
-    .facebook { background: rgba(66, 103, 178, 0.8); }
-    .discord { background: rgba(88, 101, 242, 0.8); }
-    .telegram { background: rgba(0, 136, 204, 0.8); }
-    .bsky { background: rgba(0, 123, 255, 0.8); }
-    .threads { background: rgba(63, 91, 132, 0.8); }
-    .instagram { background: rgba(225, 48, 108, 0.8); }
-    .reddit { background: rgba(255, 69, 0, 0.8); }
-    .snapchat { background: rgba(255, 235, 59, 0.8); color: #000; }
-    .tiktok { background: rgba(172, 0, 97, 0.8); }
+    .youtube { background: rgba(255, 0, 0, 0.85); }
+    .twitch { background: rgba(134, 69, 255, 0.85); }
+    .twitter { background: rgba(29, 161, 242, 0.85); }
+    .facebook { background: rgba(66, 103, 178, 0.85); }
+    .discord { background: rgba(88, 101, 242, 0.85); }
+    .telegram { background: rgba(0, 136, 204, 0.85); }
+    .threads { background: rgba(63, 91, 132, 0.85); }
+    .instagram { background: rgba(225, 48, 108, 0.85); }
+    .reddit { background: rgba(255, 69, 0, 0.85); }
+    .snapchat { background: rgba(255, 235, 59, 0.85); color: #000; }
+    .tiktok { background: rgba(172, 0, 97, 0.85); }
 
     .live-status {
       text-align: center;
-      margin: 10px 0;
+      margin: 12px 0;
       font-size: 0.9rem;
     }
 
     .live-indicator {
       display: none;
-      margin-top: 10px;
+      margin-top: 12px;
     }
 
     .live-indicator.active {
@@ -213,6 +219,8 @@
       height: 0;
       overflow: hidden;
       margin-top: 16px;
+      background: url('https://via.placeholder.com/800x450?text=Stream+Offline') center/cover no-repeat;
+      border-radius: 12px;
     }
 
     .twitch-embed iframe {
@@ -227,18 +235,19 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .schedule-item {
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 12px;
-      padding: 8px 12px;
-      font-size: 0.8rem;
-      flex: 1 1 100px;
-      max-width: 140px;
+      padding: 10px 14px;
+      font-size: 0.85rem;
+      flex: 1 1 110px;
+      max-width: 150px;
       text-align: center;
       transition: transform 0.2s;
     }
@@ -248,17 +257,19 @@
     }
 
     .calendar-btn, .live-btn {
-      background: rgba(0, 123, 255, 0.8);
-      margin-top: 12px;
+      background: rgba(0, 123, 255, 0.85);
+      margin-top: 14px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 10px 16px;
+      padding: 12px 20px;
+      border-radius: 12px;
     }
 
     .live-btn {
-      background: rgba(134, 69, 255, 0.8);
+      background: rgba(134, 69, 255, 0.85);
       display: none;
+      box-shadow: 0 0 12px rgba(134, 69, 255, 0.5);
     }
 
     .live-btn.active {
@@ -266,49 +277,66 @@
     }
 
     .countdown {
-      margin-top: 12px;
-      font-size: 0.9rem;
-      color: #b0b0b0;
+      margin-top: 14px;
+      font-size: 0.95rem;
+      color: #d0d0d0;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 8px 16px;
+      border-radius: 10px;
+      display: inline-block;
     }
 
     footer {
       text-align: center;
-      margin-top: 24px;
+      margin-top: 28px;
       color: #b0b0b0;
       font-size: 0.8rem;
     }
 
     @media (max-width: 600px) {
       body {
-        padding: 12px;
+        padding: 16px;
       }
       .container {
-        padding: 8px;
+        padding: 12px;
+      }
+      .nes-container {
+        padding: 16px;
       }
       .social-grid {
-        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(55px, 1fr));
       }
       .primary-btn {
-        font-size: 0.9rem;
-        padding: 12px 16px;
+        font-size: 1rem;
+        padding: 12px 20px;
         max-width: none;
       }
       .primary-buttons {
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
       }
       .schedule-item {
         flex: 1 1 45%;
         max-width: none;
       }
-      .nes-container {
-        padding: 12px;
+      h1 {
+        font-size: clamp(1.8rem, 5vw, 2rem);
+      }
+      .nes-btn {
+        padding: 10px;
+      }
+      .icon-btn {
+        padding: 10px;
+        font-size: 1.2rem;
       }
     }
 
     @media (max-width: 400px) {
       .schedule-item {
         flex: 1 1 100%;
+      }
+      .social-grid {
+        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
       }
     }
   </style>
@@ -327,7 +355,7 @@
       <div class="profile">
         <p class="text-lg">@iygabebless</p>
         <div id="live-indicator" class="live-indicator">
-          <span style="background: rgba(220, 53, 69, 0.8); padding: 6px 12px; border-radius: 10px; color: #fff;">LIVE NOW!</span>
+          <span style="background: rgba(220, 53, 69, 0.85); padding: 6px 12px; border-radius: 10px; color: #fff;">LIVE NOW!</span>
         </div>
       </div>
       <div class="social-buttons">
@@ -352,7 +380,7 @@
     <!-- Live Page -->
     <div id="live" class="page nes-container">
       <div class="live-status" id="live-status"></div>
-      <div id="twitch-embed" class="twitch-embed" style="display: none;"></div>
+      <div id="twitch-embed" class="twitch-embed"></div>
     </div>
 
     <!-- Schedule Page -->
@@ -407,20 +435,22 @@
       if (isLive) {
         liveIndicator.classList.add('active');
         liveStatus.innerHTML = `
-          <span style="background: rgba(220, 53, 69, 0.8); padding: 6px 12px; border-radius: 10px; color: #fff;">LIVE NOW!</span>
+          <span style="background: rgba(220, 53, 69, 0.85); padding: 6px 12px; border-radius: 10px; color: #fff;">LIVE NOW!</span>
           <p>Streaming on Twitch: Retro Mario Speedruns</p>
           <a href="https://www.twitch.tv/iygabebless" class="nes-btn twitch">Join the Stream!</a>
         `;
         twitchEmbed.style.display = 'block';
+        twitchEmbed.innerHTML = `<iframe src="https://player.twitch.tv/?channel=iygabebless&parent=${window.location.hostname}" frameborder="0" allowfullscreen="true" scrolling="no" height="100%" width="100%"></iframe>`;
         liveBtn.classList.add('active');
         liveBtn.href = 'https://www.twitch.tv/iygabebless';
       } else {
         liveIndicator.classList.remove('active');
         liveStatus.innerHTML = `
-          <span style="background: rgba(255, 193, 7, 0.8); padding: 6px 12px; border-radius: 10px; color: #212529;">Offline atm</span>
+          <span style="background: rgba(255, 193, 7, 0.85); padding: 6px 12px; border-radius: 10px; color: #212529;">Offline atm</span>
           <p>Will be live again based on the <a href="#" onclick="showPage('schedule'); return false;" style="color: var(--accent);">schedule</a></p>
         `;
-        twitchEmbed.style.display = 'none';
+        twitchEmbed.style.display = 'block';
+        twitchEmbed.innerHTML = '';
         liveBtn.classList.remove('active');
       }
     }
