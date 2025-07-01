@@ -29,7 +29,7 @@
       font-family: 'Futura', -apple-system, BlinkMacSystemFont, sans-serif;
       font-weight: bold;
       margin: 0;
-      padding: 20px;
+      padding: 16px;
       min-height: 100vh;
       overflow-x: hidden;
       transition: all 0.3s ease;
@@ -52,9 +52,9 @@
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 16px;
-      padding: 20px;
+      padding: 16px;
       box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
@@ -74,21 +74,21 @@
 
     h1 {
       color: var(--accent);
-      font-size: clamp(2rem, 6vw, 2.5rem);
-      margin-bottom: 16px;
+      font-size: clamp(1.8rem, 5vw, 2.2rem);
+      margin-bottom: 12px;
     }
 
     h2 {
       color: var(--accent);
-      font-size: 1.4rem;
-      margin-bottom: 16px;
+      font-size: 1.2rem;
+      margin-bottom: 12px;
     }
 
     nav {
       display: flex;
       justify-content: center;
-      gap: 12px;
-      margin-bottom: 24px;
+      gap: 10px;
+      margin-bottom: 16px;
       flex-wrap: wrap;
     }
 
@@ -98,15 +98,15 @@
       -webkit-backdrop-filter: blur(10px);
       border: none;
       border-radius: 12px;
-      padding: 10px 20px;
+      padding: 8px 16px;
       color: #fff;
-      font-size: clamp(0.9rem, 2.5vw, 1rem);
+      font-size: clamp(0.8rem, 2.5vw, 0.9rem);
       font-weight: bold;
       cursor: pointer;
       transition: transform 0.2s, background 0.2s;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
 
     nav button:hover {
@@ -115,29 +115,29 @@
     }
 
     .profile {
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .social-buttons {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
     .primary-buttons {
       display: flex;
       justify-content: center;
-      gap: 12px;
+      gap: 10px;
       width: 100%;
       flex-wrap: wrap;
     }
 
     .social-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 12px;
-      margin-top: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
       width: 100%;
     }
 
@@ -148,14 +148,14 @@
       border: none;
       border-radius: 12px;
       color: var(--btn-light-text);
-      padding: 12px 16px;
+      padding: 12px;
       font-size: clamp(0.8rem, 2.5vw, 1rem);
       font-weight: bold;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 6px;
       transition: all 0.3s;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
@@ -167,11 +167,16 @@
     }
 
     .primary-btn {
-      padding: 16px 24px;
-      font-size: 1.1rem;
+      padding: 14px 20px;
+      font-size: 1rem;
       background: rgba(255, 255, 255, 0.2);
       flex: 1;
-      max-width: 250px;
+      max-width: 220px;
+    }
+
+    .icon-btn {
+      padding: 10px;
+      font-size: 1.2rem;
     }
 
     .youtube { background: rgba(255, 0, 0, 0.8); }
@@ -207,7 +212,7 @@
       padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
-      margin-top: 20px;
+      margin-top: 16px;
     }
 
     .twitch-embed iframe {
@@ -222,7 +227,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 12px;
+      gap: 10px;
     }
 
     .schedule-item {
@@ -230,10 +235,10 @@
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border-radius: 12px;
-      padding: 10px 16px;
-      font-size: 0.9rem;
-      flex: 1 1 120px;
-      max-width: 160px;
+      padding: 8px 12px;
+      font-size: 0.8rem;
+      flex: 1 1 100px;
+      max-width: 140px;
       text-align: center;
       transition: transform 0.2s;
     }
@@ -242,41 +247,68 @@
       transform: translateY(-2px);
     }
 
-    .calendar-btn {
+    .calendar-btn, .live-btn {
       background: rgba(0, 123, 255, 0.8);
-      margin-top: 16px;
+      margin-top: 12px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 12px 20px;
+      padding: 10px 16px;
+    }
+
+    .live-btn {
+      background: rgba(134, 69, 255, 0.8);
+      display: none;
+    }
+
+    .live-btn.active {
+      display: inline-flex;
+    }
+
+    .countdown {
+      margin-top: 12px;
+      font-size: 0.9rem;
+      color: #b0b0b0;
     }
 
     footer {
       text-align: center;
-      margin-top: 30px;
+      margin-top: 24px;
       color: #b0b0b0;
       font-size: 0.8rem;
     }
 
     @media (max-width: 600px) {
+      body {
+        padding: 12px;
+      }
       .container {
-        padding: 10px;
+        padding: 8px;
       }
       .social-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
       }
       .primary-btn {
-        font-size: 1rem;
-        padding: 14px 20px;
+        font-size: 0.9rem;
+        padding: 12px 16px;
         max-width: none;
       }
       .primary-buttons {
         flex-direction: column;
-        gap: 12px;
+        gap: 10px;
       }
       .schedule-item {
-        flex: 1 1 100%;
+        flex: 1 1 45%;
         max-width: none;
+      }
+      .nes-container {
+        padding: 12px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .schedule-item {
+        flex: 1 1 100%;
       }
     }
   </style>
@@ -304,16 +336,16 @@
           <a href="https://www.youtube.com/@iygabebless" class="nes-btn youtube primary-btn"><i class="fab fa-youtube"></i>YouTube</a>
         </div>
         <div class="social-grid">
-          <a href="https://www.twitter.com/iygabebless" class="nes-btn twitter"><i class="fab fa-x-twitter"></i>X</a>
-          <a href="https://www.facebook.com/iygabebless" class="nes-btn facebook"><i class="fab fa-facebook-f"></i>Facebook</a>
-          <a href="https://iygabebless.discord.luxury" class="nes-btn discord"><i class="fab fa-discord"></i>Discord</a>
-          <a href="https://t.me/iygabebless" class="nes-btn telegram"><i class="fab fa-telegram-plane"></i>Telegram</a>
-          <a href="https://bsky.app/profile/iygabebless" class="nes-btn bsky"><i class="fab fa-bluesky"></i>Bsky</a>
-          <a href="https://www.threads.net/@iygabebless" class="nes-btn threads"><i class="fab fa-threads"></i>Threads</a>
-          <a href="https://www.instagram.com/iygabebless" class="nes-btn instagram"><i class="fab fa-instagram"></i>Instagram</a>
-          <a href="https://www.reddit.com/user/iygabebless" class="nes-btn reddit"><i class="fab fa-reddit-alien"></i>Reddit</a>
-          <a href="https://www.snapchat.com/add/iygabebless" class="nes-btn snapchat"><i class="fab fa-snapchat-ghost"></i>Snapchat</a>
-          <a href="https://www.tiktok.com/@iygabebless" class="nes-btn tiktok"><i class="fab fa-tiktok"></i>TikTok</a>
+          <a href="https://www.twitter.com/iygabebless" class="nes-btn twitter icon-btn"><i class="fab fa-x-twitter"></i></a>
+          <a href="https://www.facebook.com/iygabebless" class="nes-btn facebook icon-btn"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://iygabebless.discord.luxury" class="nes-btn discord icon-btn"><i class="fab fa-discord"></i></a>
+          <a href="https://t.me/iygabebless" class="nes-btn telegram icon-btn"><i class="fab fa-telegram-plane"></i></a>
+          <a href="https://bsky.app/profile/iygabebless" class="nes-btn bsky icon-btn"><i class="fab fa-bluesky"></i></a>
+          <a href="https://www.threads.net/@iygabebless" class="nes-btn threads icon-btn"><i class="fab fa-threads"></i></a>
+          <a href="https://www.instagram.com/iygabebless" class="nes-btn instagram icon-btn"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.reddit.com/user/iygabebless" class="nes-btn reddit icon-btn"><i class="fab fa-reddit-alien"></i></a>
+          <a href="https://www.snapchat.com/add/iygabebless" class="nes-btn snapchat icon-btn"><i class="fab fa-snapchat-ghost"></i></a>
+          <a href="https://www.tiktok.com/@iygabebless" class="nes-btn tiktok icon-btn"><i class="fab fa-tiktok"></i></a>
         </div>
       </div>
     </div>
@@ -336,7 +368,9 @@
         <div class="schedule-item">Sat: 3-7 AM NZST/NZDT</div>
         <div class="schedule-item">Sun: 3-7 AM NZST/NZDT</div>
       </div>
-      <a id="calendar-btn" class="nes-btn calendar-btn"><i class="fas fa-calendar-plus"></i>Add Next Stream to Calendar</a>
+      <div id="live-btn" class="live-btn"><i class="fab fa-twitch"></i>Live Now</div>
+      <div class="countdown">Next stream: <span id="countdown-timer"></span></div>
+      <a id="calendar-btn" class="nes-btn calendar-btn"><i class="fas fa-calendar-plus"></i>Add to Calendar</a>
     </div>
 
     <footer>© 2025 iygabebless</footer>
@@ -369,6 +403,7 @@
       const liveIndicator = document.getElementById('live-indicator');
       const liveStatus = document.getElementById('live-status');
       const twitchEmbed = document.getElementById('twitch-embed');
+      const liveBtn = document.getElementById('live-btn');
 
       if (isLive) {
         liveIndicator.classList.add('active');
@@ -378,6 +413,8 @@
           <a href="https://www.twitch.tv/iygabebless" class="nes-btn twitch">Join the Stream!</a>
         `;
         twitchEmbed.style.display = 'block';
+        liveBtn.classList.add('active');
+        liveBtn.href = 'https://www.twitch.tv/iygabebless';
       } else {
         liveIndicator.classList.remove('active');
         liveStatus.innerHTML = `
@@ -385,7 +422,29 @@
           <p>Will be live again based on the <a href="#" onclick="showPage('schedule'); return false;" style="color: var(--accent);">schedule</a></p>
         `;
         twitchEmbed.style.display = 'none';
+        liveBtn.classList.remove('active');
       }
+    }
+
+    function updateCountdown() {
+      const now = new Date();
+      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+      const nzOffset = isNZDT(now) ? 13 * 60 : 12 * 60;
+      const nzTime = new Date(utc + (nzOffset * 60000));
+      
+      let nextStream = new Date(nzTime);
+      if (nzTime.getHours() >= 7) {
+        nextStream.setDate(nzTime.getDate() + 1);
+      }
+      nextStream.setHours(3, 0, 0, 0);
+
+      const timeDiff = nextStream - nzTime;
+      const hours = Math.floor(timeDiff / (1000 * 60 * 60));
+      const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+      const countdownText = timeDiff <= 0 ? 'Starting soon!' : `${hours}h ${minutes}m ${seconds}s`;
+      document.getElementById('countdown-timer').textContent = countdownText;
     }
 
     function generateCalendarEvent() {
@@ -432,7 +491,9 @@ END:VCALENDAR
     }
 
     setInterval(checkLiveStatus, 60000);
+    setInterval(updateCountdown, 1000);
     checkLiveStatus();
+    updateCountdown();
     generateCalendarEvent();
   </script>
 </body>
