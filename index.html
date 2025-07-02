@@ -7,7 +7,7 @@
   <meta name="keywords" content="iygabebless, live stream, Twitch, YouTube, just chatting, IRL, streamer">
   <meta name="author" content="iygabebless">
   <meta property="og:title" content="@iygabebless">
-  <meta property="og:description" content="Catch @iygabebless live on Twitch IRL,  view the stream schedule and connect on social media!">
+  <meta property="og:description" content="Catch @iygabebless live on Twitch IRL, view the stream schedule and connect on social media!">
   <meta property="og:image" content="https://raw.githubusercontent.com/ramanengineer/iygabebless.github.io/main/F1DBADEB-99CB-4803-A8FF-DD39CB4E2202_1_102_o.jpeg">
   <meta property="og:url" content="https://iygabebless.github.io">
   <meta property="og:type" content="website">
@@ -16,16 +16,19 @@
   <title>@iygabebless</title>
   <link rel="icon" href="https://raw.githubusercontent.com/ramanengineer/iygabebless.github.io/main/F1DBADEB-99CB-4803-A8FF-DD39CB4E2202_1_102_o.jpeg" type="image/jpeg">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-bg: #1A252F;
-      --secondary-bg: #2E3A4F;
-      --accent: #D32F2F;
-      --text: #ffffff;
-      --btn-light-bg: #F5E6CC;
-      --btn-light-text: #000000; /* Adjust text color for contrast */
+      --primary-bg: #1f2937;
+      --secondary-bg: #374151;
+      --accent: #e11d48;
+      --text: #f3f4f6;
+      --btn-light-bg: #4b5563;
+      --btn-light-text: #f3f4f6;
       --btn-dark-bg: #6b7280;
       --btn-dark-text: #ffffff;
+      --active-tab-bg: #d1d5db;
+      --active-tab-text: #1f2937;
     }
 
     * {
@@ -35,22 +38,14 @@
     }
 
     body {
-      background: linear-gradient(135deg, var(--primary-bg), #1e1e4a, #2a2a6e);
+      background: var(--primary-bg);
       color: var(--text);
-      font-family: 'Futura', -apple-system, BlinkMacSystemFont, sans-serif;
-      font-weight: bold;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 500;
       margin: 0;
-      padding: 24px;
+      padding: 32px;
       min-height: 100vh;
       overflow-x: hidden;
-      animation: gradientShift 12s ease infinite;
-      background-size: 200% 200%;
-    }
-
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
     }
 
     a {
@@ -65,20 +60,16 @@
     }
 
     .nes-container {
-      background: rgba(30, 30, 74, 0.4);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 2px solid rgba(255, 255, 255, 0.15);
-      border-radius: 20px;
-      padding: 24px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-      margin-bottom: 24px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: var(--secondary-bg);
+      border: 1px solid #4b5563;
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 32px;
+      transition: transform 0.3s ease;
     }
 
     .nes-container:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0, 212, 255, 0.2);
     }
 
     .page {
@@ -98,137 +89,155 @@
     h1 {
       color: var(--accent);
       font-size: clamp(2.5rem, 6vw, 3rem);
-      margin-bottom: 16px;
-      text-shadow: 0 3px 6px rgba(0, 212, 255, 0.3);
+      margin-bottom: 24px;
     }
 
     h2 {
       color: var(--accent);
       font-size: 1.5rem;
-      margin-bottom: 16px;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      margin-bottom: 24px;
     }
 
     nav {
       display: flex;
       justify-content: center;
-      gap: 16px;
-      margin-bottom: 24px;
+      gap: 24px;
+      margin-bottom: 32px;
       flex-wrap: wrap;
     }
 
     nav button {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: var(--btn-light-bg);
       border: none;
       border-radius: 12px;
-      padding: 10px 20px;
-      color: #fff;
+      padding: 12px 24px;
+      color: var(--btn-light-text);
       font-size: clamp(0.9rem, 2.5vw, 1rem);
-      font-weight: bold;
+      font-weight: 500;
       cursor: pointer;
-      transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+      transition: background 0.2s, transform 0.2s;
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
+    nav button.active {
+      background: var(--active-tab-bg);
+      color: var(--active-tab-text);
+    }
+
     nav button:hover {
-      background: rgba(255, 255, 255, 0.25);
+      background: #6b7280;
       transform: translateY(-3px);
-      box-shadow: 0 6px 16px rgba(0, 212, 255, 0.4);
+    }
+
+    nav button.active:hover {
+      background: #e5e7eb;
     }
 
     .profile {
-      margin-bottom: 20px;
+      margin-bottom: 32px;
+    }
+
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 16px;
+      display: block;
+    }
+
+    .profile p {
+      margin-bottom: 16px;
+    }
+
+    .live-indicator, .offline-indicator {
+      display: none;
+      margin: 24px 0;
+    }
+
+    .live-indicator.active, .offline-indicator.active {
+      display: block;
+    }
+
+    .live-indicator p, .offline-indicator p {
+      margin: 12px 0;
     }
 
     .social-buttons {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 16px;
+      gap: 24px;
+      margin-top: 32px;
     }
 
     .primary-buttons {
       display: flex;
       justify-content: center;
-      gap: 16px;
+      gap: 24px;
       width: 100%;
       flex-wrap: wrap;
     }
 
     .social-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(65px, 1fr));
-      gap: 14px;
-      margin-top: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
       width: 100%;
     }
 
     .nes-btn {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: var(--btn-light-bg);
       border: none;
       border-radius: 14px;
       color: var(--btn-light-text);
-      padding: 14px;
+      padding: 16px;
       font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-      font-weight: bold;
+      font-weight: 500;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
       transition: all 0.3s;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     }
 
     .nes-btn:hover {
       transform: scale(1.08);
-      box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
     }
 
     .primary-btn {
-      padding: 16px 28px;
+      padding: 18px 32px;
       font-size: 1.2rem;
-      background: rgba(255, 255, 255, 0.2);
+      background: var(--btn-light-bg);
       flex: 1;
-      max-width: 260px;
+      max-width: 280px;
     }
 
     .icon-btn {
-      padding: 14px;
+      padding: 16px;
       font-size: 1.4rem;
     }
 
-    .youtube { background: rgba(255, 0, 0, 0.9); }
-    .twitch { background: rgba(134, 69, 255, 0.9); }
-    .twitter { background: rgba(29, 161, 242, 0.9); }
-    .facebook { background: rgba(66, 103, 178, 0.9); }
-    .discord { background: rgba(88, 101, 242, 0.9); }
-    .telegram { background: rgba(0, 136, 204, 0.9); }
-    .threads { background: rgba(63, 91, 132, 0.9); }
-    .instagram { background: rgba(225, 48, 108, 0.9); }
-    .reddit { background: rgba(255, 69, 0, 0.9); }
-    .snapchat { background: rgba(255, 235, 59, 0.9); color: #000; }
-    .tiktok { background: rgba(172, 0, 97, 0.9); }
+    .youtube { background: #dc2626; color: #fff; }
+    .twitch { background: #6d28d9; color: #fff; }
+    .twitter { background: #1d9bf0; color: #fff; }
+    .facebook { background: #3b5998; color: #fff; }
+    .discord { background: #5865f2; color: #fff; }
+    .telegram { background: #0088cc; color: #fff; }
+    .threads { background: #3f5b84; color: #fff; }
+    .instagram { background: #e1306c; color: #fff; }
+    .reddit { background: #ff4500; color: #fff; }
+    .snapchat { background: #ffeb3b; color: #000; }
+    .tiktok { background: #ac0061; color: #fff; }
 
     .live-status {
       text-align: center;
-      margin: 14px 0;
+      margin: 24px 0;
       font-size: 1rem;
-    }
-
-    .live-indicator {
-      display: none;
-      margin-top: 14px;
-    }
-
-    .live-indicator.active {
-      display: block;
     }
 
     .twitch-embed {
@@ -236,10 +245,9 @@
       padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
-      margin-top: 20px;
+      margin-top: 32px;
       background: url('https://via.placeholder.com/800x450?text=Stream+Offline') center/cover no-repeat;
       border-radius: 14px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     }
 
     .twitch-embed iframe {
@@ -254,42 +262,40 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 14px;
+      gap: 16px;
+      margin: 24px 0;
     }
 
     .schedule-item {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: var(--btn-light-bg);
+      border: 1px solid #4b5563;
       border-radius: 14px;
-      padding: 12px 16px;
+      padding: 14px 18px;
       font-size: 0.9rem;
-      flex: 1 1 120px;
-      max-width: 160px;
+      flex: 1 1 130px;
+      max-width: 170px;
       text-align: center;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.2s;
     }
 
     .schedule-item:hover {
       transform: translateY(-3px);
-      box-shadow: 0 6px 16px rgba(0, 212, 255, 0.3);
     }
 
     .calendar-btn, .live-btn {
-      background: rgba(0, 123, 255, 0.9);
-      margin-top: 16px;
+      background: #2563eb;
+      margin-top: 24px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 14px 24px;
+      padding: 16px 28px;
       border-radius: 14px;
+      color: #fff;
     }
 
     .live-btn {
-      background: rgba(134, 69, 255, 0.9);
+      background: #6d28d9;
       display: none;
-      box-shadow: 0 0 16px rgba(134, 69, 255, 0.6);
     }
 
     .live-btn.active {
@@ -297,43 +303,44 @@
     }
 
     .countdown {
-      margin-top: 16px;
+      margin-top: 24px;
       font-size: 1rem;
-      color: #e0e0e0;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 10px 20px;
+      color: var(--text);
+      background: var(--btn-light-bg);
+      padding: 12px 24px;
       border-radius: 12px;
       display: inline-block;
     }
 
     footer {
       text-align: center;
-      margin-top: 32px;
-      color: #b0b0b0;
+      margin-top: 40px;
+      color: #9ca3af;
       font-size: 0.85rem;
     }
 
     @media (max-width: 600px) {
       body {
-        padding: 18px;
+        padding: 24px;
       }
       .container {
-        padding: 14px;
+        padding: 16px;
       }
       .nes-container {
-        padding: 18px;
+        padding: 24px;
       }
       .social-grid {
-        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(65px, 1fr));
+        gap: 14px;
       }
       .primary-btn {
         font-size: 1.1rem;
-        padding: 14px 24px;
+        padding: 16px 28px;
         max-width: none;
       }
       .primary-buttons {
         flex-direction: column;
-        gap: 14px;
+        gap: 16px;
       }
       .schedule-item {
         flex: 1 1 45%;
@@ -343,11 +350,25 @@
         font-size: clamp(2rem, 5.5vw, 2.5rem);
       }
       .nes-btn {
-        padding: 12px;
+        padding: 14px;
       }
       .icon-btn {
-        padding: 12px;
+        padding: 14px;
         font-size: 1.3rem;
+      }
+      .profile-img {
+        width: 100px;
+        height: 100px;
+      }
+      .profile {
+        margin-bottom: 24px;
+      }
+      .social-buttons {
+        margin-top: 24px;
+        gap: 16px;
+      }
+      .live-indicator, .offline-indicator {
+        margin: 16px 0;
       }
     }
 
@@ -356,7 +377,7 @@
         flex: 1 1 100%;
       }
       .social-grid {
-        grid-template-columns: repeat(auto-fit, minmax(55px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
       }
     }
   </style>
@@ -366,16 +387,24 @@
     <h1>@iygabebless</h1>
 
     <nav>
-      <button onclick="showPage('home')"><i class="fab fa-twitter"></i>Socials</button>
-      <button onclick="showPage('schedule')"><i class="fas fa-calendar"></i>Schedule</button>
+      <button id="nav-home" onclick="showPage('home')"><i class="fab fa-twitter"></i>Socials</button>
+      <button id="nav-schedule" onclick="showPage('schedule')"><i class="fas fa-calendar"></i>Schedule</button>
     </nav>
 
     <!-- Home Page -->
     <div id="home" class="page nes-container active">
       <div class="profile">
+        <img src="https://raw.githubusercontent.com/ramanengineer/iygabebless.github.io/main/F1DBADEB-99CB-4803-A8FF-DD39CB4E2202_1_102_o.jpeg" alt="iygabebless profile" class="profile-img">
         <p class="text-lg">@iygabebless</p>
         <div id="live-indicator" class="live-indicator">
-          <span style="background: rgba(220, 53, 69, 0.9); padding: 8px 14px; border-radius: 12px; color: #fff;">LIVE NOW!</span>
+          <span style="background: #dc2626; padding: 8px 14px; border-radius: 12px; color: #fff;">LIVE NOW!</span>
+          <p>Live for: <span id="live-timer"></span></p>
+          <a href="https://www.twitch.tv/iygabebless" class="nes-btn twitch primary-btn" style="margin-top: 16px;"><i class="fab fa-twitch"></i>Join Live</a>
+        </div>
+        <div id="offline-indicator" class="live-indicator">
+          <span style="background: #f59e0b; padding: 8px 14px; border-radius: 12px; color: #1f2937;">Offline</span>
+          <p>Will be live again in: <span id="offline-countdown"></span></p>
+          <a href="#" onclick="showPage('schedule'); return false;" class="nes-btn calendar-btn" style="margin-top: 16px;"><i class="fas fa-calendar"></i>View Schedule</a>
         </div>
       </div>
       <div class="social-buttons">
@@ -427,6 +456,8 @@
     function showPage(pageId) {
       document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
       document.getElementById(pageId).classList.add('active');
+      document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(`nav-${pageId}`).classList.add('active');
     }
 
     function isNZDT(date) {
@@ -436,6 +467,13 @@
       const firstSundayApril = new Date(year, 3, 1);
       firstSundayApril.setDate(1 + (7 - firstSundayApril.getDay()) % 7);
       return date >= lastSundaySept && date < firstSundayApril;
+    }
+
+    function formatTimeDiff(timeDiff) {
+      const hours = Math.floor(timeDiff / (1000 * 60 * 60));
+      const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+      return `${hours}h ${minutes}m ${seconds}s`;
     }
 
     function checkLiveStatus() {
@@ -448,14 +486,22 @@
       const isLive = hours >= 3 && hours < 7;
 
       const liveIndicator = document.getElementById('live-indicator');
+      const offlineIndicator = document.getElementById('offline-indicator');
       const liveStatus = document.getElementById('live-status');
       const twitchEmbed = document.getElementById('twitch-embed');
       const liveBtn = document.getElementById('live-btn');
 
+      let streamStart = new Date(nzTime);
+      streamStart.setHours(3, 0, 0, 0);
+      if (nzTime.getHours() < 3) {
+        streamStart.setDate(nzTime.getDate() - 1);
+      }
+
       if (isLive) {
         liveIndicator.classList.add('active');
+        offlineIndicator.classList.remove('active');
         liveStatus.innerHTML = `
-          <span style="background: rgba(220, 53, 69, 0.9); padding: 8px 14px; border-radius: 12px; color: #fff;">LIVE NOW!</span>
+          <span style="background: #dc2626; padding: 8px 14px; border-radius: 12px; color: #fff;">LIVE NOW!</span>
           <p>Streaming on Twitch: Retro Mario Speedruns</p>
           <a href="https://www.twitch.tv/iygabebless" class="nes-btn twitch">Join the Stream!</a>
         `;
@@ -463,37 +509,57 @@
         twitchEmbed.innerHTML = `<iframe src="https://player.twitch.tv/?channel=iygabebless&parent=${window.location.hostname}" frameborder="0" allowfullscreen="true" scrolling="no" height="100%" width="100%"></iframe>`;
         liveBtn.classList.add('active');
         liveBtn.href = 'https://www.twitch.tv/iygabebless';
+
+        const liveDuration = nzTime - streamStart;
+        document.getElementById('live-timer').textContent = formatTimeDiff(liveDuration);
       } else {
         liveIndicator.classList.remove('active');
+        offlineIndicator.classList.add('active');
         liveStatus.innerHTML = `
-          <span style="background: rgba(255, 193, 7, 0.9); padding: 8px 14px; border-radius: 12px; color: #212529;">Offline atm</span>
+          <span style="background: #f59e0b; padding: 8px 14px; border-radius: 12px; color: #1f2937;">Offline atm</span>
           <p>Will be live again based on the <a href="#" onclick="showPage('schedule'); return false;" style="color: var(--accent);">schedule</a></p>
         `;
         twitchEmbed.style.display = 'block';
         twitchEmbed.innerHTML = '';
         liveBtn.classList.remove('active');
+
+        let nextStream = new Date(nzTime);
+        if (nzTime.getHours() >= 7) {
+          nextStream.setDate(nzTime.getDate() + 1);
+        }
+        nextStream.setHours(3, 0, 0, 0);
+        const timeToNext = nextStream - nzTime;
+        document.getElementById('offline-countdown').textContent = timeToNext <= 0 ? 'Starting soon!' : formatTimeDiff(timeToNext);
       }
     }
 
-    function updateCountdown() {
+    function updateTimers() {
       const now = new Date();
       const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
       const nzOffset = isNZDT(now) ? 13 * 60 : 12 * 60;
       const nzTime = new Date(utc + (nzOffset * 60000));
       
-      let nextStream = new Date(nzTime);
-      if (nzTime.getHours() >= 7) {
-        nextStream.setDate(nzTime.getDate() + 1);
+      const hours = nzTime.getHours();
+      const isLive = hours >= 3 && hours < 7;
+
+      if (isLive) {
+        let streamStart = new Date(nzTime);
+        streamStart.setHours(3, 0, 0, 0);
+        if (nzTime.getHours() < 3) {
+          streamStart.setDate(nzTime.getDate() - 1);
+        }
+        const liveDuration = nzTime - streamStart;
+        document.getElementById('live-timer').textContent = formatTimeDiff(liveDuration);
+      } else {
+        let nextStream = new Date(nzTime);
+        if (nzTime.getHours() >= 7) {
+          nextStream.setDate(nzTime.getDate() + 1);
+        }
+        nextStream.setHours(3, 0, 0, 0);
+        const timeToNext = nextStream - nzTime;
+        document.getElementById('offline-countdown').textContent = timeToNext <= 0 ? 'Starting soon!' : formatTimeDiff(timeToNext);
+        document.getElementById('countdown-timer').textContent = timeToNext <= 0 ? 'Starting soon!' : formatTimeDiff(timeToNext);
       }
-      nextStream.setHours(3, 0, 0, 0);
-
-      const timeDiff = nextStream - nzTime;
-      const hours = Math.floor(timeDiff / (1000 * 60 * 60));
-      const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
-
-      const countdownText = timeDiff <= 0 ? 'Starting soon!' : `${hours}h ${minutes}m ${seconds}s`;
-      document.getElementById('countdown-timer').textContent = countdownText;
     }
 
     function generateCalendarEvent() {
@@ -539,10 +605,13 @@ END:VCALENDAR
       link.download = 'iygabebless_next_stream.ics';
     }
 
+    // Set initial active tab
+    document.getElementById('nav-home').classList.add('active');
+
     setInterval(checkLiveStatus, 60000);
-    setInterval(updateCountdown, 1000);
+    setInterval(updateTimers, 1000);
     checkLiveStatus();
-    updateCountdown();
+    updateTimers();
     generateCalendarEvent();
   </script>
 </body>
