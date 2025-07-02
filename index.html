@@ -142,7 +142,7 @@
     .profile-img {
       width: 120px;
       height: 120px;
-      border-radius: 50%;
+      border-radius: 16px;
       object-fit: cover;
       margin: 0 auto 16px;
       display: block;
@@ -202,11 +202,12 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      transition: all 0.3s;
+      transition: all 0.3s ease;
     }
 
     .nes-btn:hover {
-      transform: scale(1.08);
+      transform: scale(1.1) rotate(5deg);
+      filter: brightness(1.2);
     }
 
     .primary-btn {
@@ -222,17 +223,17 @@
       font-size: 1.4rem;
     }
 
-    .youtube { background: #dc2626; color: #fff; }
-    .twitch { background: #6d28d9; color: #fff; }
-    .twitter { background: #1d9bf0; color: #fff; }
-    .facebook { background: #3b5998; color: #fff; }
-    .discord { background: #5865f2; color: #fff; }
+    .youtube { background: #ff3333; color: #fff; }
+    .twitch { background: #9146ff; color: #fff; }
+    .twitter { background: #1da1f2; color: #fff; }
+    .facebook { background: #4267b2; color: #fff; }
+    .discord { background: #7289da; color: #fff; }
     .telegram { background: #0088cc; color: #fff; }
-    .threads { background: #3f5b84; color: #fff; }
-    .instagram { background: #e1306c; color: #fff; }
+    .threads { background: #4b6b9b; color: #fff; }
+    .instagram { background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af); color: #fff; }
     .reddit { background: #ff4500; color: #fff; }
-    .snapchat { background: #ffeb3b; color: #000; }
-    .tiktok { background: #ac0061; color: #fff; }
+    .snapchat { background: #fffc00; color: #000; }
+    .tiktok { background: #ee1d52; color: #fff; }
 
     .live-status {
       text-align: center;
@@ -267,7 +268,6 @@
     }
 
     .schedule-item {
-      background: var(--btn-light-bg);
       border: 1px solid #4b5563;
       border-radius: 14px;
       padding: 14px 18px;
@@ -275,12 +275,20 @@
       flex: 1 1 130px;
       max-width: 170px;
       text-align: center;
-      transition: transform 0.2s;
+      transition: transform 0.2s ease, background 0.3s ease;
     }
 
     .schedule-item:hover {
-      transform: translateY(-3px);
+      transform: scale(1.05);
     }
+
+    .schedule-item:nth-child(1) { background: #ff6b6b; color: #fff; } /* Mon */
+    .schedule-item:nth-child(2) { background: #4ecdc4; color: #fff; } /* Tue */
+    .schedule-item:nth-child(3) { background: #45b7d1; color: #fff; } /* Wed */
+    .schedule-item:nth-child(4) { background: #96ce82; color: #fff; } /* Thu */
+    .schedule-item:nth-child(5) { background: #f7b731; color: #fff; } /* Fri */
+    .schedule-item:nth-child(6) { background: #ff9ff3; color: #fff; } /* Sat */
+    .schedule-item:nth-child(7) { background: #5d5cff; color: #fff; } /* Sun */
 
     .calendar-btn, .live-btn {
       background: #2563eb;
@@ -294,7 +302,7 @@
     }
 
     .live-btn {
-      background: #6d28d9;
+      background: #9146ff;
       display: none;
     }
 
